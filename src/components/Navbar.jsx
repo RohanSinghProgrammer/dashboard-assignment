@@ -5,7 +5,7 @@ import ToggleButton from "./ToggleButton";
 
 const Navbar = () => {
   return (
-    <div className="h-16 bg-ui-turquoise flex items-center justify-between px-8">
+    <div className="h-[10%] bg-ui-turquoise flex items-center justify-between px-8">
       <p className="text-white italic font-semibold text-3xl">Helpdesk</p>
       {/* ACTION BUTTONS */}
       <div className="flex items-center space-x-4 text-xl">

@@ -8,10 +8,10 @@ const AppLayout = () => {
   return (
     <div className="h-screen">
       <Navbar />
-      <div className="flex w-full">
+      <div className="flex w-full h-[90%]">
         <Sidebar />
         <div className="w-full">
-          {<Outlet />}
+          <div className="h-[92%]">{<Outlet />}</div>
           <Footer />
         </div>
       </div>
