@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import LoginLayout from "./layouts/LoginLayout";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
+import AppLayout from "./layouts/AppLayout";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -19,7 +20,7 @@ export default function App() {
           <Route path="register" element={<Register />} />
           <Route path="resetPassword" element={<ResetPassword />} />
         </Route>
-        <Route path="/">
+        <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
         </Route>
       </Route>
