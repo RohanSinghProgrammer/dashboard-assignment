@@ -1,7 +1,6 @@
 import React from "react";
 import DashboardCard from "../components/DashboardCard";
 import { BsBarChartLine } from "react-icons/bs";
-import { IoMdStar, IoMdStarHalf } from "react-icons/io";
 import { FaUsersGear } from "react-icons/fa6";
 import { BiSolidUserVoice } from "react-icons/bi";
 import Rating from "../components/Rating";
