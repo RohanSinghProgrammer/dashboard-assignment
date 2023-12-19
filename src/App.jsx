@@ -13,6 +13,8 @@ import AppLayout from "./layouts/AppLayout";
 import Database from "./pages/Database";
 import Settings from "./pages/Settings";
 import UserLog from "./pages/UserLog";
+import User from "./pages/User";
+import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -28,6 +30,8 @@ export default function App() {
           <Route path="/database" element={<Database />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/userLog" element={<UserLog />} />
+          <Route path="/user" element={<User />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Route>
     )

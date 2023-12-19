@@ -5,30 +5,9 @@ import { IoMdStar, IoMdStarHalf } from "react-icons/io";
 import { FaUsersGear } from "react-icons/fa6";
 import { BiSolidUserVoice } from "react-icons/bi";
 import Rating from "../components/Rating";
+import { dashboardCardInfoArr } from "../data/DummyData";
 
 const Home = () => {
-  const dashboardCardInfoArr = [
-    {
-      title: "Total Tickets",
-      number: 12,
-      color: "#2F82FF",
-    },
-    {
-      title: "Total Solved",
-      number: 8,
-      color: "#0BFF68",
-    },
-    {
-      title: "Total Awaiting Time",
-      number: 2,
-      color: "#FE594E",
-    },
-    {
-      title: "Total in Progress",
-      number: 2,
-      color: "#FCFF6C",
-    },
-  ];
   return (
     <div className="flex flex-col py-4 px-12 h-full">
       <h2 className="text-2xl font-semibold text-gray-900 h-[10%]">
