@@ -10,6 +10,9 @@ import LoginLayout from "./layouts/LoginLayout";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import AppLayout from "./layouts/AppLayout";
+import Database from "./pages/Database";
+import Settings from "./pages/Settings";
+import UserLog from "./pages/UserLog";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -22,6 +25,9 @@ export default function App() {
         </Route>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
+          <Route path="/database" element={<Database />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/userLog" element={<UserLog />} />
         </Route>
       </Route>
     )
