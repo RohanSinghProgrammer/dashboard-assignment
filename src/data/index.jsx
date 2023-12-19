@@ -6,3 +6,11 @@ export const headerList = [
     'Activity',
     'Date/Sign Out Time'
   ]
+  
+export const DBHeaderList = [
+  'Staff ID',
+  'Name',
+  'Department',
+  'Specialty',
+  'Setting'
+]
