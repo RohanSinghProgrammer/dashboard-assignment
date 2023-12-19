@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const NewTicket = () => {
+  const recaptchaRef = useRef();
   return (
-    <div className="h-full p-4">
+    <div className="h-full p-4 overflow-y-scroll">
       <h2 className="text-center text-2xl font-semibold">Create New Ticket</h2>
       {/* --------------------------------- FORM --------------------------------- */}
       <form className="mt-4">
@@ -100,9 +102,27 @@ const NewTicket = () => {
             </div>
           </div>
           <div className="w-1/2">
-            <label htmlFor="desc" className="text-lg">Description:</label>
-            <textarea name="desc" id="desc" className="h-full w-full rounded-md bg-gray-200 focus:outline-none p-4"></textarea>
+            <label htmlFor="desc" className="text-lg">
+              Description:
+            </label>
+            <textarea
+              name="desc"
+              id="desc"
+              className="h-full w-full rounded-md bg-gray-200 focus:outline-none p-4 mt-2"
+            ></textarea>
           </div>
+        </div>
+        <div className="flex w-full px-12 my-4 justify-between items-end">
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey="6LfTeTYpAAAAADY2Sdh_hwq8SoVnpt145-aRmkWL" // this is demo sitekey, we have to add genuine sitekey to use it properly.
+          />
+          <button
+            type="submit"
+            className="px-12 py-2 h-fit bg-ui-turquoise rounded-md"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>
