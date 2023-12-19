@@ -93,7 +93,7 @@ const Settings = () => {
                 className="h-5 w-5 mr-6 accent-white"
               />
             </div>
-            <div className="px-4 py-2 flex justify-between items-center caret-slate-200">
+            <div className="px-4 py-2 flex justify-between items-center bg-gray-300">
               <p>Authorization Level</p>
               <select name="auth" id="auth" className="text-sm bg-gray-200">
                 <option value="admin">Admin</option>
