@@ -15,6 +15,7 @@ import Settings from "./pages/Settings";
 import UserLog from "./pages/UserLog";
 import User from "./pages/User";
 import PageNotFound from "./pages/PageNotFound";
+import EditUser from "./pages/EditUser";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/userLog" element={<UserLog />} />
           <Route path="/user" element={<User />} />
+          <Route path="/editUser" element={<EditUser />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Route>
