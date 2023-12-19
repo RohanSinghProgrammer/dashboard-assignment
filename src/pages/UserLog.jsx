@@ -29,7 +29,7 @@ const UserLog = () => {
           </tr>
         </thead>
         <tbody>
-          {Array(5).fill(0).map((item,index)=> <TableItem index={index} />)}
+          {Array(5).fill(0).map((item,index)=> <TableItem key={index} index={index} />)}
         </tbody>
       </table>
       {/* ----------------------------- PAGE FOOTER ----------------------------- */}

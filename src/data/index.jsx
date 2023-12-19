@@ -14,3 +14,12 @@ export const DBHeaderList = [
   'Specialty',
   'Setting'
 ]
+
+export const myTicketsList = [
+  "Ticket No.",
+  "Subject",
+  "Status",
+  "Support By",
+  "Date",
+  "Rate"
+]
