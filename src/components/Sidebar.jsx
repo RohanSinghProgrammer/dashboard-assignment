@@ -6,11 +6,14 @@ import SelectionSidebarArrow from "./SelectionSidebarArrow";
 import { Link, useLocation } from "react-router-dom";
 import { BiSolidUserVoice } from "react-icons/bi";
 import { FaUsersGear } from "react-icons/fa6";
+import { IoTicketSharp } from "react-icons/io5";
+import { BsTicketPerforatedFill } from "react-icons/bs";
 
 const Sidebar = () => {
   const { pathname } = useLocation();
   return (
     <div className="w-72 bg-ui-gray h-full p-4 space-y-1 font-semibold">
+      {/* ------------------------- DASHBOARD ------------------------- */}
       <Link
         to={"/"}
         className="flex items-center tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
@@ -19,6 +22,7 @@ const Sidebar = () => {
         <MdOutlineDashboard />
         <p className="ml-1">Dashboard</p>
       </Link>
+      {/* ------------------------- DATABASE ------------------------- */}
       <div className="tracking-wide w-full">
         <Link
           to={"/database"}
@@ -47,6 +51,7 @@ const Sidebar = () => {
           </div>
         )}
       </div>
+      {/* ------------------------- SETTINGS ------------------------- */}
       <Link
         to={"/settings"}
         className="flex items-center space-x-2 tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
@@ -55,6 +60,7 @@ const Sidebar = () => {
         <MdSettings />
         <p>Settings</p>
       </Link>
+      {/* ------------------------- USER LOG HISTORY ------------------------- */}
       <Link
         to={"/userLog"}
         className="flex items-center space-x-2 tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
@@ -62,6 +68,24 @@ const Sidebar = () => {
         <SelectionSidebarArrow name={"userLog"} />
         <AiFillDatabase />
         <p>User Log History</p>
+      </Link>
+      {/* ------------------------- NEW TICKET ------------------------- */}
+      <Link
+        to={"/newTicket"}
+        className="flex items-center space-x-2 tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
+      >
+        <SelectionSidebarArrow name={"newTicket"} />
+        <IoTicketSharp />
+        <p>New Ticket</p>
+      </Link>
+      {/* ------------------------- MY TICKET ------------------------- */}
+      <Link
+        to={"/myTicket"}
+        className="flex items-center space-x-2 tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
+      >
+        <SelectionSidebarArrow name={"myTicket"} />
+        <BsTicketPerforatedFill />
+        <p>My Ticket</p>
       </Link>
     </div>
   );

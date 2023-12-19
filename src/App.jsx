@@ -16,6 +16,8 @@ import UserLog from "./pages/UserLog";
 import User from "./pages/User";
 import PageNotFound from "./pages/PageNotFound";
 import EditUser from "./pages/EditUser";
+import MyTicket from "./pages/MyTicket";
+import NewTicket from "./pages/NewTicket";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -33,6 +35,8 @@ export default function App() {
           <Route path="/userLog" element={<UserLog />} />
           <Route path="/user" element={<User />} />
           <Route path="/editUser" element={<EditUser />} />
+          <Route path="/myTicket" element={<MyTicket />} />
+          <Route path="/newTicket" element={<NewTicket />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Route>
