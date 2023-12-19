@@ -11,8 +11,8 @@ const TicketTableItem = () => {
       </td>
       <td className="px-6 py-2">Tech Support</td>
       <td className="px-6 py-2">13/08/2021</td>
-      <td>
-        <div className="flex justify-center space-x-0.5 mb-4">
+      <td className="h-full">
+        <div className="flex justify-center space-x-0.5 mb-4 pt-3">
           {Array(5)
             .fill(0)
             .map((item, index) => (

@@ -1,6 +1,11 @@
 import React from "react";
 import { MdOutlineDashboard, MdSettings } from "react-icons/md";
-import { FaAngleRight, FaDatabase, FaUserAlt } from "react-icons/fa";
+import {
+  FaAngleRight,
+  FaDatabase,
+  FaTicketAlt,
+  FaUserAlt,
+} from "react-icons/fa";
 import { AiFillDatabase } from "react-icons/ai";
 import SelectionSidebarArrow from "./SelectionSidebarArrow";
 import { Link, useLocation } from "react-router-dom";
@@ -8,6 +13,7 @@ import { BiSolidUserVoice } from "react-icons/bi";
 import { FaUsersGear } from "react-icons/fa6";
 import { IoTicketSharp } from "react-icons/io5";
 import { BsTicketPerforatedFill } from "react-icons/bs";
+import { ImPower } from "react-icons/im";
 
 const Sidebar = () => {
   const { pathname } = useLocation();
@@ -86,6 +92,24 @@ const Sidebar = () => {
         <SelectionSidebarArrow name={"myTicket"} />
         <BsTicketPerforatedFill />
         <p>My Ticket</p>
+      </Link>
+      {/* ------------------------- TICKET APPROVAL ------------------------- */}
+      <Link
+        to={"/ticketApproval"}
+        className="flex items-center space-x-2 tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
+      >
+        <SelectionSidebarArrow name={"ticketApproval"} />
+        <FaTicketAlt />
+        <p>Ticket Approval</p>
+      </Link>
+      {/* ------------------------- PERFORMANCE  ------------------------- */}
+      <Link
+        to={"/performance"}
+        className="flex items-center space-x-2 tracking-wide p-2 rounded-md hover:bg-gray-300 w-full"
+      >
+        <SelectionSidebarArrow name={"performance"} />
+        <ImPower />
+        <p>Performance</p>
       </Link>
     </div>
   );
