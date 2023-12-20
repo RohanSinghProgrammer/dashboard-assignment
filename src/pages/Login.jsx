@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CryptoJS from 'crypto-js';
 
 const Login = () => {
   const handleLogin = () => {
@@ -10,7 +11,8 @@ const Login = () => {
         "Select serial number of your desire role: \n 1. User,\n 2. Operation Team,\n 3. Technical Support,\n 4. Admin "
       );
     } while (!rolesArr.includes(role));
-    localStorage.setItem("userRole", role);
+    const hashedRole = CryptoJS.AES.encrypt(role, "secretKey").toString();
+    localStorage.setItem("userRole", hashedRole);
     window.location.href = "/";
   };
   return (
