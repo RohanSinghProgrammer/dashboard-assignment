@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router';
 
 const FullScreenPageNotFound = () => {
+  const navigate = useNavigate()
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/login')
+    }, 500);
+  }, [])
+  
   return (
     <div className="grid place-items-center h-screen">
     <div className="grid place-items-center space-y-4">
