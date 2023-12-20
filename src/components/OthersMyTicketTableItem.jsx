@@ -1,12 +1,16 @@
 import React from "react";
 import { FaDownload, FaEdit, FaUserPlus } from "react-icons/fa";
 
-const OthersMyTicketTableItem = ({ setOpen }) => {
+const OthersMyTicketTableItem = ({
+  openTicketDetailsModal,
+  openCloseTicketModal,
+  openCreateTeamModal,
+}) => {
   return (
     <tr className="odd:bg-gray-300 even:bg-gray-100 border-b">
       <td className="px-2 py-2">
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => openTicketDetailsModal(true)}
           className="underline text-blue-500"
         >
           1234
@@ -22,10 +26,10 @@ const OthersMyTicketTableItem = ({ setOpen }) => {
       <td className="px-2 py-2"></td>
       <td className="px-2 py-2">
         <div className="flex items-center space-x-2 pt-0.5">
-          <button>
+          <button onClick={() => openCloseTicketModal(true)}>
             <FaEdit className="text-lg" />
           </button>
-          <button>
+          <button onClick={() => openCreateTeamModal(true)}>
             <FaUserPlus className="text-lg" />
           </button>
           <button>
