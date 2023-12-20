@@ -22,7 +22,7 @@ import TicketApproval from "./pages/TicketApproval";
 import Performance from "./pages/Performance";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 import useCurrentRole from "./hooks/useCurrentRole";
-import FullScreenPageNotFound from "./pages/FullScreenPageNotFound";
+import LoadingScreen from "./pages/LoadingScreen";
 
 export default function App() {
   const userRole = useCurrentRole();
@@ -36,8 +36,8 @@ export default function App() {
               <Route path="register" element={<Register />} />
               <Route path="resetPassword" element={<ResetPassword />} />
             </Route>
-            <Route index element={<FullScreenPageNotFound />} />
-            <Route path="*" element={<FullScreenPageNotFound />} />
+            <Route index element={<LoadingScreen />} />
+            <Route path="*" element={<LoadingScreen />} />
           </Route>
         ) : (
           <Route path="/" element={<AppLayout />}>
