@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const AppLayout = () => {
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <Navbar />
       <div className="flex w-full h-[90%]">
         <Sidebar />
