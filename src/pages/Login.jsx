@@ -4,6 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
+    let role = null;
+    let rolesArr = ["1", "2", "3", "4"];
+    do {
+      role = prompt(
+        "Select serial number of your desire role: \n 1. User,\n 2. Operation Team,\n 3. Technical Support,\n 4. Admin "
+      );
+    } while (!rolesArr.includes(role));
+    localStorage.setItem("userRole", role);
     navigate("/");
   };
   return (
