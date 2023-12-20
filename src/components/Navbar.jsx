@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("userRole");
-    window.location.href = "/login"
+    window.location.href = "/"
   };
   return (
     <div className="h-[10%] bg-ui-turquoise flex items-center justify-between px-8">
