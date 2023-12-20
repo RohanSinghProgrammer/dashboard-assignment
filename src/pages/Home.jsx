@@ -5,6 +5,7 @@ import { FaUsersGear } from "react-icons/fa6";
 import { BiSolidUserVoice } from "react-icons/bi";
 import Rating from "../components/Rating";
 import { dashboardCardInfoArr } from "../data/DummyData";
+import ProtectedComponents from "../utils/ProtectedComponents";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         ))}
       </div>
       {/* --------------------------- BOTTOM ANALYTICS --------------------------- */}
+      <ProtectedComponents roles={["operationTeam","technicalSupport","admin"]}>
       <div className="pb-4 grid grid-cols-2 grid-rows-3 gap-8 mt-8 h-[60%]">
         <div className="row-span-3 bg-ui-turquoise h-full grid place-items-center">
           <BsBarChartLine className="text-9xl text-blue-900" />
@@ -48,6 +50,7 @@ const Home = () => {
           <Rating />
         </div>
       </div>
+      </ProtectedComponents>
     </div>
   );
 };
