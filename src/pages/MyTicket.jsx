@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 import UserMyTicketTable from "../components/UserMyTicketTable";
 import OthersMyTicketTable from "../components/OthersMyTicketTable";
+import ProtectedComponents from "../utils/ProtectedComponents";
 
 const MyTicket = () => {
   return (
@@ -32,8 +33,12 @@ const MyTicket = () => {
         <p>Entries</p>
       </div>
       {/* --------------------------------- TABLE --------------------------------- */}
-        {/* <UserMyTicketTable /> */}
+      <ProtectedComponents roles={["user"]}>
+        <UserMyTicketTable />
+      </ProtectedComponents>
+      <ProtectedComponents roles={["operationTeam", "technicalSupport"]}>
         <OthersMyTicketTable />
+      </ProtectedComponents>
       {/* ----------------------------- TABLE FOOTER ----------------------------- */}
       <div className="flex items-center justify-between mt-2 px-2">
         <p>Showing 1 to 5 of 5 entries</p>
