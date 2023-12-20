@@ -23,3 +23,13 @@ export const myTicketsList = [
   "Date",
   "Rate"
 ]
+
+export const ticketApprovalList = [
+  "Ticket No.",
+  "Subject",
+  "Category",
+  "Priority",
+  "Date",
+  "Action",
+  "Assigned To"
+]
