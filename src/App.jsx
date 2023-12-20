@@ -5,11 +5,11 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Login from "./pages/Login";
-import Home from "./pages/Home";
 import LoginLayout from "./layouts/LoginLayout";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import AppLayout from "./layouts/AppLayout";
+import Home from "./pages/Home";
 import Database from "./pages/Database";
 import Settings from "./pages/Settings";
 import UserLog from "./pages/UserLog";
@@ -20,6 +20,7 @@ import MyTicket from "./pages/MyTicket";
 import NewTicket from "./pages/NewTicket";
 import TicketApproval from "./pages/TicketApproval";
 import Performance from "./pages/Performance";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -32,15 +33,66 @@ export default function App() {
         </Route>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
-          <Route path="/database" element={<Database />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/userLog" element={<UserLog />} />
           <Route path="/user" element={<User />} />
           <Route path="/editUser" element={<EditUser />} />
-          <Route path="/myTicket" element={<MyTicket />} />
-          <Route path="/newTicket" element={<NewTicket />} />
-          <Route path="/ticketApproval" element={<TicketApproval />} />
-          <Route path="/performance" element={<Performance />} />
+          <Route
+            path="/database"
+            element={
+              <ProtectedRoutes roles={["admin"]}>
+                <Database />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoutes roles={["admin"]}>
+                <Settings />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/userLog"
+            element={
+              <ProtectedRoutes roles={["admin"]}>
+                <UserLog />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/newTicket"
+            element={
+              <ProtectedRoutes roles={["user"]}>
+                <NewTicket />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/myTicket"
+            element={
+              <ProtectedRoutes
+                roles={["user", "operationTeam", "technicalSupport"]}
+              >
+                <MyTicket />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/ticketApproval"
+            element={
+              <ProtectedRoutes roles={["operationTeam"]}>
+                <TicketApproval />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/performance"
+            element={
+              <ProtectedRoutes roles={["operationTeam", "technicalSupport"]}>
+                <Performance />
+              </ProtectedRoutes>
+            }
+          />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Route>
