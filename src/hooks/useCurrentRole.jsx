@@ -1,7 +1,7 @@
 import CryptoJS from "crypto-js";
 
 const useCurrentRole = () => {
-  const hashedUserRole = localStorage.getItem("userRole");
+  const hashedUserRole = localStorage.getItem("userRole") || "0";
   const userRole = CryptoJS.AES.decrypt(hashedUserRole, "secretKey").toString(CryptoJS.enc.Utf8);
   let currentRole;
   switch (userRole) {
