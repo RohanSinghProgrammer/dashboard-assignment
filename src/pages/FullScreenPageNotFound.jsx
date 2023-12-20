@@ -6,7 +6,7 @@ const FullScreenPageNotFound = () => {
   useEffect(() => {
     setTimeout(() => {
       navigate('/login')
-    }, 500);
+    }, 50);
   }, [])
   
   return (
