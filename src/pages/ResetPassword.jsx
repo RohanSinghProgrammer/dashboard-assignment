@@ -6,9 +6,6 @@ const ResetPassword = () => {
   const handleSubmit = () => {
     navigate("/login");
   };
-  const handleSignIn = () => {
-    navigate("/");
-  };
   return (
     <div>
       <form className="flex flex-col w-72 items-center">
@@ -30,7 +27,7 @@ const ResetPassword = () => {
           Submit
         </button>
         <button
-          onClick={handleSignIn}
+          onClick={handleSubmit}
           type="submit"
           className="bg-blue-500 text-white w-fit px-16 py-3 rounded-xl mt-4 cursor-pointer"
         >

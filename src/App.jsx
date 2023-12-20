@@ -21,80 +21,90 @@ import NewTicket from "./pages/NewTicket";
 import TicketApproval from "./pages/TicketApproval";
 import Performance from "./pages/Performance";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
+import useCurrentRole from "./hooks/useCurrentRole";
+import FullScreenPageNotFound from "./pages/FullScreenPageNotFound";
 
 export default function App() {
+  const userRole = useCurrentRole();
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        <Route path="login" element={<LoginLayout />}>
-          <Route index element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="resetPassword" element={<ResetPassword />} />
-        </Route>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/editUser" element={<EditUser />} />
-          <Route
-            path="/database"
-            element={
-              <ProtectedRoutes roles={["admin"]}>
-                <Database />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <ProtectedRoutes roles={["admin"]}>
-                <Settings />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/userLog"
-            element={
-              <ProtectedRoutes roles={["admin"]}>
-                <UserLog />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/newTicket"
-            element={
-              <ProtectedRoutes roles={["user"]}>
-                <NewTicket />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/myTicket"
-            element={
-              <ProtectedRoutes
-                roles={["user", "operationTeam", "technicalSupport"]}
-              >
-                <MyTicket />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/ticketApproval"
-            element={
-              <ProtectedRoutes roles={["operationTeam"]}>
-                <TicketApproval />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/performance"
-            element={
-              <ProtectedRoutes roles={["operationTeam", "technicalSupport"]}>
-                <Performance />
-              </ProtectedRoutes>
-            }
-          />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
+        {!userRole ? (
+          <Route path="/">
+            <Route path="login" element={<LoginLayout />}>
+              <Route index element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="resetPassword" element={<ResetPassword />} />
+            </Route>
+            <Route index element={<FullScreenPageNotFound />} />
+            <Route path="*" element={<FullScreenPageNotFound />} />
+          </Route>
+        ) : (
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/editUser" element={<EditUser />} />
+            <Route
+              path="/database"
+              element={
+                <ProtectedRoutes roles={["admin"]}>
+                  <Database />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoutes roles={["admin"]}>
+                  <Settings />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/userLog"
+              element={
+                <ProtectedRoutes roles={["admin"]}>
+                  <UserLog />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/newTicket"
+              element={
+                <ProtectedRoutes roles={["user"]}>
+                  <NewTicket />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/myTicket"
+              element={
+                <ProtectedRoutes
+                  roles={["user", "operationTeam", "technicalSupport"]}
+                >
+                  <MyTicket />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/ticketApproval"
+              element={
+                <ProtectedRoutes roles={["operationTeam"]}>
+                  <TicketApproval />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/performance"
+              element={
+                <ProtectedRoutes roles={["operationTeam", "technicalSupport"]}>
+                  <Performance />
+                </ProtectedRoutes>
+              }
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        )}
       </Route>
     )
   );

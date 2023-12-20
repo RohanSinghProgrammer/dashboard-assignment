@@ -2,13 +2,12 @@ import React from "react";
 import { FaBell, FaUser } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import ToggleButton from "./ToggleButton";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const handleLogout = () => {
-    navigate("/login");
     localStorage.removeItem("userRole");
+    window.location.href = "/login"
   };
   return (
     <div className="h-[10%] bg-ui-turquoise flex items-center justify-between px-8">
