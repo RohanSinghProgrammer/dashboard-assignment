@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { toast } from "react-toastify";
 
 const LoginModal = ({ setUserRole, setOpen }) => {
   const ref = useRef();
@@ -6,6 +7,7 @@ const LoginModal = ({ setUserRole, setOpen }) => {
     e.preventDefault();
     let value = ref.current.value;
     setUserRole(value);
+    toast.success("Role selected! kindly Sign in again.")
     setOpen(false)
   };
   return (
