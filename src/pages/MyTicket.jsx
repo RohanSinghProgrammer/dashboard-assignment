@@ -1,8 +1,8 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
-import { myTicketsList } from "../data";
-import TicketTableItem from "../components/TicketTableItem";
+import UserMyTicketTable from "../components/UserMyTicketTable";
+import OthersMyTicketTable from "../components/OthersMyTicketTable";
 
 const MyTicket = () => {
   return (
@@ -32,20 +32,8 @@ const MyTicket = () => {
         <p>Entries</p>
       </div>
       {/* --------------------------------- TABLE --------------------------------- */}
-      <table className="w-full">
-        <thead>
-          <tr>
-            {myTicketsList.map((item,index) => <th className="py-4" key={index}>{item}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          <TicketTableItem />
-          <TicketTableItem />
-          <TicketTableItem />
-          <TicketTableItem />
-          <TicketTableItem />
-        </tbody>
-      </table>
+        {/* <UserMyTicketTable /> */}
+        <OthersMyTicketTable />
       {/* ----------------------------- TABLE FOOTER ----------------------------- */}
       <div className="flex items-center justify-between mt-2 px-2">
         <p>Showing 1 to 5 of 5 entries</p>

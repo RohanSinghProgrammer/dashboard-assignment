@@ -33,3 +33,14 @@ export const ticketApprovalList = [
   "Action",
   "Assigned To"
 ]
+
+export const othersMyTicketTable = [
+  "Ticket No.",
+  "Subject",
+  "Category",
+  "Priority",
+  "Date",
+  "Status",
+  "Person in change",
+  "Action"
+]
