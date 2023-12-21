@@ -1,26 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
-import ModalLayout from "../layouts/ModalLayout";
-import LoginModal from "../components/LoginModal";
 
 const Login = () => {
-  const [open, setOpen] = useState(false);
-  const [userRole, setUserRole] = useState("0");
+  const navigate = useNavigate()
   const handleLogin = () => {
-    setOpen(true);
-    if (userRole != "0") {
-      setOpen(false);
+      let userRole= "1"
       const hashedRole = CryptoJS.AES.encrypt(userRole, "secretKey").toString();
       localStorage.setItem("userRole", hashedRole);
-      window.location.href = "/";
-    }
+      navigate('/')
   };
   return (
     <div>
-      <ModalLayout open={open} setOpen={setOpen}>
-        <LoginModal setUserRole={setUserRole} setOpen={setOpen} />
-      </ModalLayout>
       <h2 className="font-bold italic text-2xl mb-8 text-center">
         Helpdesk System
       </h2>

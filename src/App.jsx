@@ -21,25 +21,18 @@ import NewTicket from "./pages/NewTicket";
 import TicketApproval from "./pages/TicketApproval";
 import Performance from "./pages/Performance";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
-import useCurrentRole from "./hooks/useCurrentRole";
-import FullScreenPageNotFound from "./pages/FullScreenPageNotFound";
 
 export default function App() {
-  const userRole = useCurrentRole();
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        {!userRole ? (
           <Route path="/">
             <Route path="login" element={<LoginLayout />}>
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="resetPassword" element={<ResetPassword />} />
             </Route>
-            <Route index element={<FullScreenPageNotFound />} />
-            <Route path="*" element={<FullScreenPageNotFound />} />
           </Route>
-        ) : (
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="/user" element={<User />} />
@@ -104,7 +97,6 @@ export default function App() {
             />
             <Route path="*" element={<PageNotFound />} />
           </Route>
-        )}
       </Route>
     )
   );
