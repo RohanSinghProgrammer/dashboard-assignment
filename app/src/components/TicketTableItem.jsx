@@ -1,10 +1,10 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
-const TicketTableItem = () => {
+const TicketTableItem = ({openTicketDetailsModal}) => {
   return (
     <tr className="odd:bg-gray-300 even:bg-gray-100 border-b">
-      <td className="px-6 py-2">1234</td>
+      <td onClick={()=> openTicketDetailsModal(true)} className="px-6 py-2 cursor-pointer text-blue-500 underline">1234</td>
       <td className="px-6 py-2">Login issue</td>
       <td className="px-6 py-2">
         <button className="bg-green-400 p-1 rounded-md">In Progress</button>
