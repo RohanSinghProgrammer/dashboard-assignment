@@ -1,13 +1,16 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/SIdebar";
 import Footer from "../components/Footer";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useCurrentRole from "../hooks/useCurrentRole";
 
 const AppLayout = () => {
-  return (
+    const role = useCurrentRole()
+  
+  return role == "0" ?  (
     <div className="h-screen relative">
       <Navbar />
       <ToastContainer autoClose={2000} />
@@ -19,7 +22,7 @@ const AppLayout = () => {
         </div>
       </div>
     </div>
-  );
+  ) : <Navigate to={"/login"} />
 };
 
 export default AppLayout;
