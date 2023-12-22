@@ -23,6 +23,7 @@ import Performance from "./pages/Performance";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 export default function App() {
+  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
