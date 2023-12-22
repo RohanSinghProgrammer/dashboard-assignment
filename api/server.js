@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require('mongoose')
 const authRoutes = require("./src/routes/authRoutes");
+const ticketRoutes = require("./src/routes/ticketRoutes")
 
 require('dotenv').config()
 const app = express();
@@ -31,5 +32,6 @@ mongoose
   .catch((e) => console.log(`ERROR: ${e.message}`));
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/tickets", ticketRoutes);
 
 app.listen(PORT, () => console.log(`Alive on http://localhost:${PORT}`));

@@ -5,7 +5,7 @@ import CryptoJS from "crypto-js";
 const Login = () => {
   const navigate = useNavigate()
   const handleLogin = () => {
-      let userRole= "4"
+      let userRole= "1"
       const hashedRole = CryptoJS.AES.encrypt(userRole, "secretKey").toString();
       localStorage.setItem("userRole", hashedRole);
       navigate('/')
