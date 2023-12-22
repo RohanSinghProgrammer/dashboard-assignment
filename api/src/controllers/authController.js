@@ -14,8 +14,7 @@ const login = async (req, res) => {
     if (decPassword != password)
     return res.status(403).json({ message: "Wrong credentials ☹️" });
   const token = GenerateToken({username, email: user.email});
-    const bearerToken = "Bearer " + token;
-    res.send({ user, token: bearerToken });
+    res.send({ user, token });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
