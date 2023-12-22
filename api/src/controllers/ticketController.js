@@ -7,7 +7,7 @@ const getTickets = async (req, res) => {
     limit = Number(limit) || 10;
     let skip = (page - 1) * limit;
     let users = await TicketModel.find(rest).skip(skip).limit(limit);
-    res.send(users);
+    res.json({ data: users, dataLength: users.length, page });
   } catch (e) {
     res.status(500).json({ message: e.message });
   }

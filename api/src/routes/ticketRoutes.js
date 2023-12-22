@@ -6,11 +6,12 @@ const {
   updateTicket,
   deleteTicket,
 } = require("../controllers/ticketController");
+const auth = require("../middlewares/auth");
 
 router.get("/", getTickets);
 router.get("/:id", getTicketById);
-router.post("/", addTicket);
-router.put("/:id", updateTicket);
-router.delete("/:id", deleteTicket);
+router.post("/", auth, addTicket);
+router.put("/:id", auth, updateTicket);
+router.delete("/:id", auth, deleteTicket);
 
 module.exports = router;

@@ -5,6 +5,7 @@ const schema = new mongoose.Schema(
     ticketNo: {
       type: Number,
       required: true,
+      unique: true
     },
     name: {
       type: String,
