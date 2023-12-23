@@ -16,7 +16,6 @@ const MyTicket = () => {
       let url = `http://localhost:4000/api/v1/tickets?page=${page}&limit=${limit}`;
       let res = await axios.get(url);
       setData(res.data);
-      console.log(res.data);
     } catch (e) {
       toast.error(e.message);
     }
@@ -78,7 +77,7 @@ const MyTicket = () => {
           </button>
           <p>{page}</p>
           <button
-            disabled={data?.data.length < 10}
+            disabled={data?.data.length < limit}
             onClick={() => setPage((prev) => prev + 1)}
           >
             <FaAnglesRight />
