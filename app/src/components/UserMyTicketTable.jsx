@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import TicketTableItem from "./TicketTableItem";
 import { myTicketsList } from "../data";
-import ModalLayout from "../layouts/ModalLayout";
-import TicketDetailsModal from "./TicketDetailsModal";
 
 const UserMyTicketTable = ({ data }) => {
-  const [ticketDetailsModal, setTicketDetailsModal] = useState(false);
   return (
     <div className="w-full">
-      {/* ----------------------- TICKET DETAILS MODAL ----------------------- */}
-      <ModalLayout open={ticketDetailsModal} setOpen={setTicketDetailsModal}>
-        <TicketDetailsModal setOpen={setTicketDetailsModal} />
-      </ModalLayout>
       <table className="w-full">
         <thead>
           <tr>
@@ -24,7 +17,7 @@ const UserMyTicketTable = ({ data }) => {
         </thead>
         <tbody>
           {data.map((item, index) => (
-            <TicketTableItem {...item} openTicketDetailsModal={setTicketDetailsModal} />
+            <TicketTableItem {...item} key={index} />
           ))}
         </tbody>
       </table>

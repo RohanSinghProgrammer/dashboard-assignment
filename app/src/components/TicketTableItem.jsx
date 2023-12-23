@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import ModalLayout from "../layouts/ModalLayout";
+import TicketDetailsModal from "./TicketDetailsModal";
 
-const TicketTableItem = ({
-  openTicketDetailsModal,
-  ticketNo,
-  status,
-  name,
-  category,
-  rating,
-  date,
-}) => {
+const TicketTableItem = (props) => {
+  const {
+    ticketNo,
+    status,
+    name,
+    category,
+    rating,
+    date,
+    department,
+    subject,
+    description,
+    type,
+    priority,
+  } = props;
+  const [ticketDetailsModal, setTicketDetailsModal] = useState(false);
   return (
     <tr className="odd:bg-gray-300 even:bg-gray-100 border-b">
+      {/* ----------------------- TICKET DETAILS MODAL ----------------------- */}
+      <ModalLayout open={ticketDetailsModal} setOpen={setTicketDetailsModal}>
+        <TicketDetailsModal
+          ticketNo={ticketNo}
+          date={date}
+          name={name}
+          department={department}
+          subject={subject}
+          setOpen={setTicketDetailsModal}
+          type={type}
+          description={description}
+          priority={priority}
+          status={status}
+        />
+      </ModalLayout>
       <td
-        onClick={() => openTicketDetailsModal(true)}
+        onClick={() => setTicketDetailsModal(true)}
         className="px-6 py-2 cursor-pointer text-blue-500 underline"
       >
         {ticketNo}
