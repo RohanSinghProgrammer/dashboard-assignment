@@ -17,7 +17,7 @@ const MyTicket = () => {
       let res = await axios.get(url);
       setData(res.data);
     } catch (e) {
-      toast.error(e.message);
+      toast.error(e?.response?.data?.message);
     }
   };
   useEffect(() => {

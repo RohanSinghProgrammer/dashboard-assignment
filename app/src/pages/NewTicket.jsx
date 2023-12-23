@@ -47,7 +47,7 @@ const NewTicket = () => {
       toast.success("Ticket successfully created!");
       e.target.reset()
     } catch (e) {
-      toast.error(e.message);
+      toast.error(e?.response?.data?.message);
     }
   };
   return (

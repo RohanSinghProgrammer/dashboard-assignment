@@ -27,7 +27,7 @@ const Register = () => {
       toast.success("User created successfully");
       navigate("/login");
     } catch (e) {
-      toast.error(e.message);
+      toast.error(e?.response?.data?.message);
     }
   };
   return (
