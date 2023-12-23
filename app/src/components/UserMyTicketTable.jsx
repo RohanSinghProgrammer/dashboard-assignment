@@ -4,32 +4,30 @@ import { myTicketsList } from "../data";
 import ModalLayout from "../layouts/ModalLayout";
 import TicketDetailsModal from "./TicketDetailsModal";
 
-const UserMyTicketTable = () => {
-  const [ticketDetailsModal, setTicketDetailsModal] = useState(false)
+const UserMyTicketTable = ({ data }) => {
+  const [ticketDetailsModal, setTicketDetailsModal] = useState(false);
   return (
     <div className="w-full">
-    {/* ----------------------- TICKET DETAILS MODAL ----------------------- */}
-    <ModalLayout open={ticketDetailsModal} setOpen={setTicketDetailsModal}>
-      <TicketDetailsModal setOpen={setTicketDetailsModal} />
-    </ModalLayout>
-    <table className="w-full">
-      <thead>
-        <tr>
-          {myTicketsList.map((item, index) => (
-            <th className="py-4" key={index}>
-              {item}
-            </th>
+      {/* ----------------------- TICKET DETAILS MODAL ----------------------- */}
+      <ModalLayout open={ticketDetailsModal} setOpen={setTicketDetailsModal}>
+        <TicketDetailsModal setOpen={setTicketDetailsModal} />
+      </ModalLayout>
+      <table className="w-full">
+        <thead>
+          <tr>
+            {myTicketsList.map((item, index) => (
+              <th className="py-4" key={index}>
+                {item}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <TicketTableItem {...item} openTicketDetailsModal={setTicketDetailsModal} />
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        <TicketTableItem openTicketDetailsModal={setTicketDetailsModal} />
-        <TicketTableItem openTicketDetailsModal={setTicketDetailsModal} />
-        <TicketTableItem openTicketDetailsModal={setTicketDetailsModal} />
-        <TicketTableItem openTicketDetailsModal={setTicketDetailsModal} />
-        <TicketTableItem openTicketDetailsModal={setTicketDetailsModal} />
-      </tbody>
-    </table>
+        </tbody>
+      </table>
     </div>
   );
 };

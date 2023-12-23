@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProtectedComponents from "../utils/ProtectedComponents";
+import { toast } from "react-toastify";
+import axios from "axios";
 
-const TicketDetailsModal = ({ setOpen }) => {
+const TicketDetailsModal = ({ setOpen, data }) => {
+  console.log(data)
   return (
     <div className="w-96">
       <h2 className="text-center font-semibold text-xl mb-4">Ticket Details</h2>
       <div>
         <p>
-          Ticket No: <span>123456</span>
+          Ticket No: <span>{data?.ticketNo}</span>
         </p>
         <p>Date:</p>
         <p>Name:</p>
