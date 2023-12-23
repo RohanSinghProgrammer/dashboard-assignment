@@ -24,6 +24,7 @@ const Register = () => {
           email
         }
       );
+      toast.success("User created successfully");
       navigate("/login");
     } catch (e) {
       toast.error(e.message);

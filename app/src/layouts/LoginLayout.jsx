@@ -1,10 +1,13 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const LoginLayout = () => {
-  return (
+  const userRole = localStorage.getItem("userRole");
+  return userRole ? (
+    <Navigate to="/" />
+  ) : (
     <>
       <ToastContainer autoClose={2000} />
       <div className="bg-ui-turquoise h-screen grid place-items-center">
@@ -15,5 +18,3 @@ const LoginLayout = () => {
 };
 
 export default LoginLayout;
-
-

@@ -5,12 +5,11 @@ import Sidebar from "../components/SIdebar";
 import Footer from "../components/Footer";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useCurrentRole from "../hooks/useCurrentRole";
 
 const AppLayout = () => {
-    const role = useCurrentRole()
+    const userRole = localStorage.getItem("userRole")
   
-  return role == "0" ?  (
+  return userRole ?  (
     <div className="h-screen relative">
       <Navbar />
       <ToastContainer autoClose={2000} />
